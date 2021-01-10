@@ -379,10 +379,8 @@ class Publisher(Controller):
                    'LIKE ' + keyword + 'OR CONCAT(lastname," ", firstname) '
                     'LIKE ' + keyword + " OR title LIKE " + keyword + " OR ISBN LIKE " + keyword +" )AND cat_id=" + str(catid))
 
-            #self.queryPrint(sql)
             searchres = self.query2(False, sql)
             searchres.run()
-            searchres.result()
             return searchres.res
         else:
             sql = ('SElECT book_id, ISBN, title, editionno, publdate, language FROM Book ' +
@@ -392,6 +390,40 @@ class Publisher(Controller):
             searchres.run()
             searchres.result()
             return searchres.res
+
+    def checkStorageSpaceWH(self, qty, wh_id):
+        sql = "SELECT T1.max - T2.cur as Avail FROM (SELECT SUM(max_storage) AS max FROM Warehouse WHERE wh_id=" + str(
+            wh_id) + " ) AS T1 JOIN (SELECT COUNT(bk_id) AS cur FROM `ThousandCopy` JOIN Book ON bk_id=book_id WHERE warehouse_id =" + str(
+            wh_id) + ") AS T2"
+        # self.query(sql)
+        # myresult = self._Controller__cursor.fetchall()  # a gamisou 1x1 array
+        myresult = self.query2(False, sql)
+        myresult.run()
+        myresult = myresult.res
+        avail = myresult[0][0]
+        if (avail < qty):
+            print("Insufficient Storage Space for selected Warehouse")
+            return False
+        else:
+            print("Sufficient Storage Space for selected Warehouse")
+            return True
+
+    def checkStorageSpaceWH(self, qty, wh_id):
+        sql = "SELECT T1.max - T2.cur as Avail FROM (SELECT SUM(max_storage) AS max FROM Warehouse WHERE wh_id=" + str(
+            wh_id) + " ) AS T1 JOIN (SELECT COUNT(bk_id) AS cur FROM `ThousandCopy` JOIN Book ON bk_id=book_id WHERE warehouse_id =" + str(
+            wh_id) + ") AS T2"
+        # self.query(sql)
+        # myresult = self._Controller__cursor.fetchall()  # a gamisou 1x1 array
+        myresult = self.query2(False, sql)
+        myresult.run()
+        myresult = myresult.res
+        avail = myresult[0][0]
+        if (avail < qty):
+            print("Insufficient Storage Space for selected Warehouse")
+            return False
+        else:
+            print("Sufficient Storage Space for selected Warehouse")
+            return True
 
     def search(self, keyword):
         if keyword:
@@ -408,29 +440,3 @@ class Publisher(Controller):
             return  searchres.res
         else:
             return self.fetchall('Book')
-
-    def search2(self, keyword):
-        print("--------- RESULTS FOR: ", keyword, " -------------")
-        keyword = '"%' + keyword + '%"'
-        sql = ("SElECT book_id, ISBN, title, editionno, publdate, language " +
-               'FROM Book JOIN (Writes JOIN (Author JOIN Associate ON writer_id=assoc_id) ON writer_id=writ_id) '
-               'ON book_id=wr_bookid WHERE CONCAT(firstname," ", lastname) '
-               'LIKE ' + keyword + 'OR CONCAT(lastname," ", firstname) '
-               'LIKE ' + keyword + " OR title LIKE " + keyword + " OR ISBN LIKE " + keyword)
-        # self.queryPrint(sql)
-        myresult = self.query2(False, sql)
-        myresult.run()
-        myresult.result()
-        return myresult.res
-        #
-        # def processOrder():
-        #     #to do check stock -> if not enough : print more -> delete from warehouses
-        #     return
-        #
-        # def checkStock():
-        #     #to do
-        #     return
-        #
-        # def checkStorageSpace(whid):
-        #     #returns available storage space
-        #     return

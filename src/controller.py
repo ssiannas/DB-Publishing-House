@@ -49,7 +49,6 @@ class Controller():
         if (type(value) == type("")):
             value = "'" + value + "'"
         sql = "UPDATE " + table + " SET " + column + '=' + str(value) + " WHERE " + str(tableid) + '=' + str(row_id)
-        print(sql)
         self.query(sql)
         self.__cnx.commit()
 
@@ -60,13 +59,17 @@ class Controller():
         res = self.__cursor.fetchone()
         return res
 
-    def fetchall(self, *args):
-        for table in args:
-            sql = "SELECT * FROM " + table
-            
-            self.query(sql)
-            res = self.__cursor.fetchall()
-            return res
+    def printTable(self, table):
+        data = self.fetchall(table)
+        print("===============Printing Table: Book ================")
+        for i in data:
+            print(i)
+
+    def fetchall(self, table):
+        sql = "SELECT * FROM " + table
+        qr = self.query2(False, sql)
+        qr.run()
+        return qr.res
 
     def fetchattr(self, attr, table):
         sql = "SELECT " + attr + " FROM " + table

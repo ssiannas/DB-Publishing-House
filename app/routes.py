@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from app import app
-from scripts import *
+from app.scripts import *
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
@@ -56,10 +56,3 @@ def index():
     myBooks, mykeys, myids  = searchbooks(text,cat)
     mycats = getCategories()
     return render_template('index.html', books=zip(myBooks,myids), keys=mykeys, cats = mycats)
-#
-# @app.route('/', methods=['POST'])
-# def my_form_post():
-#     text = request.form['text']
-#     cat = request.form['radio']
-#     processed_text = text.upper()
-#     return processed_text, cat
