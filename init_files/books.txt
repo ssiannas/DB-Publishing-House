@@ -1,0 +1,31 @@
+0-4507-8963-2	jimkareiimaska	2	1969-06-09	Greek
+0-8461-8526-1	Partner in Crime	1	1963-06-23	Greek
+0-7565-0989-0	Little Mercy	4	1963-10-12	Greek
+0-5400-2815-0	2246:Zenith	2	1968-12-19	Greek
+0-8322-6597-7	Case of the Sacred Lynx	7	1968-12-31	Greek
+0-8143-8117-0	The Great Gachi	6	1978-01-25	Greek
+0-6479-1370-4	Crisis of Lust	4	1978-06-19	Greek
+0-9048-1583-8	Birds of a Feather	3	1982-06-08	Greek
+0-1935-7018-1	Assasin's End	4	1985-01-09	Greek
+0-8857-2108-X	Sealed with a Kiss	7	1987-04-17	English
+0-7427-6749-3	Kingdom of Fog	5	1991-06-15	English
+0-8299-4577-6	The Dance of the Blessed	6	1999-12-09	English
+0-2546-6627-2	End of Mars	6	2000-09-03	English
+0-6061-7681-0	Atomic Eden	6	2000-11-02	English
+0-1339-0420-2	Case of the Invisible Baboon	4	2004-10-07	English
+0-8696-1182-8	Crime of the Scarred Conductor	6,	2005-01-22	English
+0-1751-6386-3	Sign of the Thirteenth Claw	5	2005-04-07	English
+0-2096-5616-6	The Lord of the Necklaces	2	2006-02-14	English
+0-7899-9960-9	The Ghost in the Creek	7	2011-04-21	English
+0-2504-2615-3	Abyss of Crows	5	2011-12-14	English
+0-4008-4049-9	The Bones of the Phoenix	2	1963-01-30	English
+0-9105-4250-3	Mists of Nebula	3	2016-03-23	Greek
+0-8480-5240-4	Prophecy Retreating	1	2018-04-19	Greek
+0-6855-2713-1	Big Phish	3	2020-03-14	Greek
+0-1103-8645-0	Peace and War	2	1985-10-27	English
+0-3348-2888-0	Illegal Activities and Disciplinary Action	7	1988-11-05	English
+0-2331-5919-3	My Travels	3	1990-06-09	Greek
+0-9152-9457-5	The Young Man and the Sea	3	1990-07-01	English
+0-1290-7402-0	The Color Like Nothing You've Ever Seen Before	7	1991-07-04	English
+0-7383-4654-3	Cowardly Old World	7	1989-07-09	English
+978-1-64327-289-4	The Molecule as Meme	1	2015-06-25	English

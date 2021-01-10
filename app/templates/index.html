@@ -1,0 +1,50 @@
+<!doctype html>
+
+  {%extends "base.html"%} 
+  {%block styles%}
+  <link rel="stylesheet" type= "text/css" href= "{{url_for('static', filename='css/index.css')}}">
+  {%endblock%}
+  {%block body%}
+  <div class="container">
+    <form autocomplete="off" method="POST" class="md-form mt-0 main">
+      <div class="input-group mb-3">
+
+        <input  name="keyword" class="form-control" type="text" placeholder="Search for book titles, authors..." aria-label="Search">
+        <div><button class="btn btn-primary" type="submit">Search</button></div>
+      </div>
+      <div class="container">
+        <div id = "btns" class="btn-group d-flex btn-group-toggle" role="group" data-toggle="buttons">
+          {%for cat in cats%}
+              <label class="btn btn-secondary active">
+                <input type="radio" name="categories" id={{cat[1]}} value={{cat[0]}} autocomplete="off"> {{cat[1]}}
+              </label>
+          {%endfor%}
+        </div> 
+      </div>
+    </form>
+    &nbsp
+
+    <table class="table table-dark table-hover table-bordered">
+      <thead>
+        <tr>
+          {%for key in keys%} 
+          <th>{{key}}</th> 
+          {%endfor%}  
+        </tr>
+      </thead>
+      <tbody>
+      <!-- table rows -->
+      {%for book,id in books%} 
+
+      <tr> 
+          {%for item in book.uiattr%} 
+          <td><a href="/book?bkid={{id}}" style="text-decoration: none;">{{item}}</a></td> 
+          {%endfor%} 
+      </tr>
+      {%endfor%} 
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  {%endblock%}

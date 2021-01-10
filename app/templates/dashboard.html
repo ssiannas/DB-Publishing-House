@@ -1,0 +1,201 @@
+{%extends "base.html"%}
+{%block body%}
+<div class="container">
+	<div class="container">
+		<h1>Add Book</h1>
+  		<form autocomplete="off" method="POST" class="md-form mt-0 main" action="dashboard?act=1">
+		  <div class="form-row">
+		    <div class="col">
+		      <input name = "isbn" type="text" class="form-control" placeholder="ISBN" required>
+		    </div>
+		    <div class="col">
+		      <input name = "title" type="text" class="form-control" placeholder="Title" required>
+		    </div>
+		    <div class="col">
+		      <input name = "editionno" type="text" class="form-control" placeholder="Edition Number" required>
+		    </div>
+		    <div class="col">
+		      <input name= "publdate" type="date" class="form-control" placeholder="Publication Date" required>
+		    </div>	
+		    <div class="col">
+			  <select name="language" class="form-control" required>
+			    <option selected value="Greek">Greek</option>
+			    <option value="English">English</option>
+			  </select>
+		  </div>
+		</div>
+		 &nbsp
+		  <div class="form-row">
+			<div class="col">
+			  <select name="author" class="form-control selectpicker" multiple data-selected-text-format="count" required title="Author">
+			  	 {%for author,authid in authors%}
+			  	 <option value="{{authid}}">{{author}}</option>
+			  	 {%endfor%}
+			  </select>
+		    </div>
+			<div class="col">
+			  <select name="editor" class="form-control" required> 
+			  	<option value=null selected disabled>Editor</option>
+			  	 {%for editor,edid in editors%}
+			  	 <option value="{{edid}}">{{editor}}</option>
+			  	 {%endfor%}
+			  </select>
+		    </div>
+			<div class="col">
+			  <select name="illustrator" class="form-control" required>
+			  	 <option value=null selected disabled>Illustrator</option>
+			  	 {%for illustrator,illid in illustrators%}
+			  	 <option value="{{illid}}">{{illustrator}}</option>
+			  	 {%endfor%}
+			  </select>
+		    </div>
+			<div class="col">
+			  <select name="translator" class="form-control">
+			  	 <option value=0 selected disabled>Translator</option>
+			  	 {%for translator,trid in translators%}
+			  	 <option value="{{trid}}">{{translator}}</option>
+			  	 {%endfor%}
+			  </select>
+		    </div>
+			<div class="col">
+			  <select name="or_lang" class="form-control">
+			  	 {% for lang in ["Greek","English","Russian","Italian","French"]%}
+			  	 <option value="{{lang}}">{{lang}}</option>
+			  	 {%endfor%}
+			  </select>
+		    </div>
+
+
+		  </div>
+		&nbsp
+		<div class="table-row">
+			<div name= "categories" class="btn-group d-flex" role="group" required>
+		  	 {%for cat in cats%}
+		        <input type="checkbox" class="btn-check" name="category" id={{cat[1]}} value={{cat[0]}} autocomplete="off"> 
+		        <label class="btn btn-outline-primary" for="{{cat[1]}}">{{cat[1]}}</label>
+		  	 {%endfor%}
+		  </div>	
+		    <div><button class="btn btn-primary" type="submit">Add</button></div>
+		</div>
+		</form>
+   </div>
+
+   &nbsp
+	<div class="container">
+		<h1>Add Associate</h1>
+		  <form autocomplete="off" method="POST" class="md-form mt-0 main"  action="dashboard?act=2">
+			  <div class="form-row">
+				<div class="col">
+				  <input name = "fn", type="text" class="form-control" placeholder="First Name" required>
+				</div>
+				<div class="col">
+				  <input  name = "ln" type="text" class="form-control" placeholder="Last Name" required>
+				</div>
+				<div class="col">
+				  <input  name = "phone" type="text" class="form-control" placeholder="Phone Number" required>
+				</div>
+				<div class="col">
+				  <input name = "mail" type="text" class="form-control" placeholder="Email" required>
+				</div>	
+				<div class="col"		>
+					<input name = "afm" type="text" class="form-control" placeholder="ΑΦΜ" required>
+				 </div>
+			  </div>
+			   &nbsp
+			  <div class="form-row">
+			  	<div class="col">
+				<select id="type" name="type" class="form-control" required>
+				  <option selected value="Author">Author</option>
+				  <option value="Editor">Editor</option>
+				  <option value="Illustrator">Illustrator</option>
+				  <option value="Translator">Translator</option>
+				</select>
+			  </div>
+			  <div><button class="btn btn-primary" type="submit">Add</button></div>
+			</div>
+		</form>
+	</div>
+	&nbsp
+	<div class="container">	
+		<h1>Add Warehouse</h1>
+		  <form autocomplete="off" method="POST" class="md-form mt-0 main" action="dashboard?act=3">
+			  <div class="form-row">
+				<div class="col">
+				  <input name = "phone", type="text" class="form-control" placeholder="Phone" required>
+				</div>
+				<div class="col">
+				  <input  name = "street" type="text" class="form-control" placeholder="Street" required>
+				</div>
+				<div class="col">
+				  <input  name = "streetno" type="text" class="form-control" placeholder="Street Number" required>
+				</div>
+				<div class="col">
+				  <input name = "city" type="text" class="form-control" placeholder="City" required>
+				</div>	
+				<div class="col">
+					<input name = "zipcode" type="text" class="form-control" placeholder="Zipcode" required>
+				 </div>
+				<div class="col">
+					<input name = "max_storage" type="text" class="form-control" placeholder="Max Storage (thousands)" required>
+				 </div>
+			  
+			  <div><button class="btn btn-primary" type="submit">Add</button></div>
+			  </div>
+		</form>
+		</div>
+		&nbsp
+		<div class="container">	
+		<h1>Add Printhouse</h1>
+		  	<form autocomplete="off" method="POST" class="md-form mt-0 main" action="dashboard?act=4">
+			  <div class="form-row">
+				<div class="col">
+				  <input name = "phone", type="text" class="form-control" placeholder="Phone" required>
+				</div>
+				<div class="col">
+				  <input  name = "street" type="text" class="form-control" placeholder="Street" required>
+				</div>
+				<div class="col">
+				  <input  name = "streetno" type="text" class="form-control" placeholder="Street Number" required>
+				</div>
+				<div class="col">
+				  <input name = "city" type="text" class="form-control" placeholder="City" required>
+				</div>	
+				<div class="col">
+					<input name = "zipcode" type="text" class="form-control" placeholder="Zipcode" required>
+				 </div>
+			  <div><button class="btn btn-primary" type="submit">Add</button></div>
+			</div>
+		</form>
+	</div>
+	&nbsp
+	<div class="container">	
+		<h1>Add Client</h1>
+		  	<form autocomplete="off" method="POST" class="md-form mt-0 main" action="dashboard?act=5">
+			  <div class="form-row">
+			  	<div class="col">
+				  <input name = "name", type="text" class="form-control" placeholder="Company Name" required>
+				</div>
+				<div class="col">
+				  <input name = "phone", type="text" class="form-control" placeholder="Phone" required>
+				</div>
+				<div class="col">
+				  <input  name = "street" type="text" class="form-control" placeholder="Street" required>
+				</div>
+				<div class="col">
+				  <input  name = "streetno" type="text" class="form-control" placeholder="Street Number" required>
+				</div>
+				<div class="col">
+				  <input name = "city" type="text" class="form-control" placeholder="City" required>
+				</div>	
+				<div class="col">
+					<input name = "zipcode" type="text" class="form-control" placeholder="Zipcode" required>
+				 </div>
+				<div class="col">
+					<input name = "afm" type="text" class="form-control" placeholder="ΑΦΜ" required>
+				 </div>
+			  <div><button class="btn btn-primary" type="submit">Add</button></div>
+			</div>
+		</form>
+	</div>
+</div>
+{%endblock%}

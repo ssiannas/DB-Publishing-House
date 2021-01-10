@@ -1,0 +1,2 @@
+/*Currently available storage (max- current):*/
+SELECT T1.max - T2.cur as Avail FROM (SELECT SUM(max_storage) AS max FROM Warehouse) AS T1 JOIN (SELECT COUNT(bk_id) AS cur FROM `ThousandCopy` JOIN Book ON bk_id=book_id) AS T2;
