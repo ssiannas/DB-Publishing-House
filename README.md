@@ -11,7 +11,7 @@ ________
 
 3. Install flask using the command >pip install flask
 
-4. Edit the sql login credentials in src/config.py
+4. Edit the sql login credentials in _src/config.py_
 
 5. Make sure the hostname in _\_main.py_ is correct. If are not sure set it to '127.0.0.1'
 
