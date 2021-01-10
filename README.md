@@ -11,6 +11,10 @@ ________
 
 3. Install flask using the command >pip install flask
 
-4. Run run.bat
+4. Edit the sql login credentials in src/config.py
 
-5. If that doesn't work, run \_main.py from an IDE and you can run db_console by double-clicking
+5. Make sure the hostname in _\_main.py_ is correct. If are not sure set it to '127.0.0.1'
+
+5. Run run.bat
+
+6. If that doesn't work, run \_main.py from an IDE and you can run db_console by double-clicking
