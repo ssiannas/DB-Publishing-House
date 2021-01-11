@@ -41,7 +41,14 @@ def book():
     mybook,mykeys = searchFull(bkid)
     return render_template("book.html", keys = mykeys, attrs=mybook, number = len(mybook))
 
+@app.route('/erd', methods=['GET', 'POST'])
+def erd():
+	return render_template("erd.html")
 
+@app.route('/db', methods=['GET', 'POST'])
+def db():
+	return render_template("db.html")
+	
 @app.route('/', methods=['GET', 'POST'])
 def index():
     pub.commit()
